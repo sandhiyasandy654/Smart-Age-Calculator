@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgeWise - Smart Age Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>AgeWise</h1>
+        <p class="subtitle">Smart Age Calculator</p>
+
+        <div class="calculator">
+            <label for="dob">Enter Your Date of Birth</label>
+            <input type="date" id="dob">
+
+            <button onclick="calculateAge()">Calculate My Age</button>
+
+            <div id="result" class="result">
+                <h2>Your Age Details</h2>
+                <p id="age">Your age will appear here.</p>
+                <p id="days"></p>
+                <p id="birthday"></p>
+                <p id="category"></p>
+            </div>
+        </div>
+
+        <p class="footer">Made with AgeWise ❤️</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
