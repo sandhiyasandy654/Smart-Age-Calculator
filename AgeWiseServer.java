@@ -22,8 +22,11 @@ public class AgeWiseServer {
 
     public static void main(String[] args) throws IOException {
 
-        HttpServer server = HttpServer.create(
-            new InetSocketAddress(8080), 0
+    int port = Integer.parseInt(
+    System.getenv().getOrDefault("PORT", "8080")
+);
+    HttpServer server = HttpServer.create(
+            new InetSocketAddress(port), 0
         );
 
         server.createContext("/api/age", ex -> {
@@ -98,7 +101,7 @@ public class AgeWiseServer {
             String urlPath = ex.getRequestURI().getPath();
             if (urlPath.equals("/")) urlPath = "/index.html";
 
-            Path root = Paths.get("web").toAbsolutePath().normalize();
+            Path root = Paths.get(".").toAbsolutePath().normalize();
             Path file = root.resolve(urlPath.substring(1)).normalize();
 
             if (!file.startsWith(root) || !Files.isRegularFile(file)) {
@@ -123,9 +126,8 @@ public class AgeWiseServer {
         System.out.println("Open http://localhost:8080");
 
         
-        java.awt.Desktop.getDesktop().browse(
-            java.net.URI.create("http://localhost:8080")
-        );
+        
+    
     }
 }
 
